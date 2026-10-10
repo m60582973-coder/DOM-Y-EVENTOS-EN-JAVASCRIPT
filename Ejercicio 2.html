@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cambio de apariencia</title>
+    <style>
+        #seccion {
+            background-color: lightgray;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .destacada {
+            background-color: rgb(98, 171, 196) !important;
+        }
+    </style>
+</head>
+<body>
+    <section id="seccion">
+        <h2>Mi sección</h2>
+        <p>Este contenido cambia de apariencia.</p>
+    </section>
+
+    <button id="cambiar">Cambiar color</button>
+    <button id="restaurar">Restaurar</button>
+
+    <script>
+        const seccion = document.getElementById("seccion");
+
+        document.getElementById("cambiar").addEventListener("click", function() {
+            seccion.classList.add("destacada");
+        });
+
+        document.getElementById("restaurar").addEventListener("click", function() {
+            seccion.classList.remove("destacada");
+        });
+    </script>
+</body>
+</html>

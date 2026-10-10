@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Seguimiento de escritura</title>
+</head>
+<body>
+    <h2>Escribe algo</h2>
+
+    <input type="text" id="campo" placeholder="Escribe aquí">
+    <p id="resultado">Tu texto aparecerá aquí.</p>
+
+    <script>
+        const campo = document.getElementById("campo");
+        const resultado = document.getElementById("resultado");
+
+        campo.addEventListener("input", function() {
+            resultado.textContent = campo.value;
+        });
+    </script>
+</body>
+</html>

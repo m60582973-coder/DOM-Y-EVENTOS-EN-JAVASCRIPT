@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades educativas SENA </title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #65ddbf;
+        }
+        .contenedor {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: rgb(146, 194, 33);
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #238636;
+        }
+
+        input {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #d8dfd9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>Mis actividades SENA</h1>
+
+        <label for="busqueda">Buscar actividad y resultados de tus Actividades:</label>
+        <input type="text" id="busqueda"
+               placeholder="Ejemplo: JavaScript">
+
+        <ul id="actividades, trabajos y resultados de tus actividades">
+            <li>Actividad de HTML</li>
+            <li>Investigación de JavaScript</li>
+            <li>Modelo de base de datos MySQL</li>
+            <li>Diseño de interfaz web</li>
+            <li>resultados de la evaluacion HTML</li>
+        </ul>
+
+        <p id="mensaje"></p>
+    </div>
+
+    <script>
+        const busqueda = document.getElementById("busqueda");
+        const actividades = document.querySelectorAll("#actividades li");
+        const mensaje = document.getElementById("mensaje");
+
+        busqueda.addEventListener("input", function() {
+            const texto = busqueda.value.toLowerCase();
+            let encontradas = 0;
+
+            actividades.forEach(function(actividad) {
+                const coincide = actividad.textContent
+                    .toLowerCase()
+                    .includes(texto);
+
+                actividad.style.display = coincide ? "" : "none";
+
+                if (coincide) {
+                    encontradas++;
+                }
+            });
+
+            if (encontradas === 0) {
+                mensaje.textContent = "No se encontraron actividades.";
+            } else {
+                mensaje.textContent =
+                    "Actividades encontradas: " + encontradas;
+            }
+        });
+    </script>
+
+</body>
+</html>
